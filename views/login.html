@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block main %}
+<div id="login_html">
+    <form id="form" method="post" action="/login">
+        <div class="user">
+            <span>用户</span>名：
+            <input type="text" name="username"  v-model="username" ></br>
+        </div>
+        <div class="password">
+            <span>密</span>码：
+            <input type="password" name="password" v-model="password"></br>
+            <span v-text="tip_password" class="tip"></span></br></span>
+        </div>
+        <div class="button">
+            <input type="submit" v-model="button" class="button">
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% extends "base.html" %} {% block script %}
+<script type="text/javascript" src="/static/js/login.js"></script>
+{% endblock %}
+
+{% extends "base.html" %} {% block header %}
+<link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}

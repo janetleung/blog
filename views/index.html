@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block main %}
+<div id="index_html">
+    <div class="article">
+        <ul>
+            <li v-for="item in items">
+                <a v-bind:href="article_html(item.id)" class="article_title" v-text="item.title"></a>
+                <p v-text="item.introduction"></p>
+                <img src="/static/image/date.png"><span v-text="item.created_at"></span><img src="/static/image/label.png"><a href="#" class="article_category" v-text="item.category"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="pagination">
+        <ul>
+            <li v-for="pagination in paginations" v-if="page">
+                <a href="#" v-on:click="queryArticleList(pagination)" v-text="pagination"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% extends "base.html" %} {% block script %}
+    <script type="text/javascript" src="/static/js/index.js"></script>
+{% endblock %}
+
+{% extends "base.html" %} {% block header %}
+<link rel="stylesheet" href="/static/css/index.css">
+{% endblock %}

@@ -1,0 +1,60 @@
+#login_html {
+    width: 450px;
+    height: 300px;
+    margin: 30px auto;
+}
+
+#form {
+    padding: 30px;
+    font-size: 1.25em;
+    color: #666;
+}
+
+.user {
+    margin: 25px;
+}
+
+.user span {
+    letter-spacing: 8px;
+}
+
+.user input {
+    border-radius: 3px;
+    border: solid #666 1px;
+    height: 25px;
+    width: 230px;
+}
+
+.user input:focus {
+    border-color: rgb(56, 247, 9);
+    background: #fff;
+}
+
+.password {
+    margin: 25px;
+}
+
+.password span {
+    letter-spacing: 35px;
+}
+
+.password input {
+    border-radius: 3px;
+    border: solid #666 1px;
+    height: 25px;
+    width: 230px;
+}
+
+.password input:focus {
+    border-color: rgb(56, 247, 9);
+    background: #fff;
+}
+
+.button {
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    font-size: 0.9em;
+    margin: 0 auto;
+    color: #666;
+}

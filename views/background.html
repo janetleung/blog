@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <title>Blog | Leung后台管理系统</title>
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/background.css">
+        <script type="text/javascript" src="/static/js/jquery-3.1.1.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.js"> </script>
+        <script type="text/javascript" charset="utf-8" src="/ueditor/zh-cn.js"></script>
+        <script type="text/javascript" src="/static/js/vue.js"></script>
+        {% block header %} {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>Blog | Leung后台管理系统</h1>
+            </div>
+            <nav class="navbar-static-top">
+                <div class="container">
+                    <div>
+                        <ul class="nav nav-pills nav-justified" role="tablist">
+                            <li role="presentation"><a href="/login/index">写博文</a></li>
+                            <li role="presentation" ><a href="/articleManage/">博文管理</a></li>
+                            <li role="presentation"><a href="/blogManage/">博客管理</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+            {% block background %} {% endblock %}
+            <div class="footer">
+                    <div><span>© 2017 Leung</span></div>
+            </div>
+        </div>
+
+
+        {% block script %} {% endblock %}
+    </body>
+</html>

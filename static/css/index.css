@@ -1,0 +1,75 @@
+
+.article {
+    margin-left: 8px;
+}
+
+.article li {
+    list-style: none;
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.article_title:link, .article_title:visited {
+    color: green;
+    font-size: 1.25em;
+    text-decoration: none;
+}
+
+.article_title:hover, .article_title:active {
+    color: green;
+    font-size: 1.25em;
+    text-decoration: underline;
+}
+
+.article p {
+    font-size: 0.8em;
+    color: #666;
+    padding: 10px 0;
+}
+
+.article span {
+    font-size: 0.8em;
+    color: #666;
+    margin-right: 20px;
+}
+
+.article_category {
+    font-size: 0.8em;
+    color: #666;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.article img {
+    width: 15px;
+    margin-bottom: -3px;
+    margin-right: 8px;
+}
+
+.pagination {
+    margin: 20px auto;
+    width: 200px;
+}
+
+.pagination li {
+    list-style: none;
+    float: left;
+    border: solid 1px green;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-right: -1px;
+    line-height: 30px;
+}
+
+.pagination a:link, .pagination a:visited {
+    text-decoration: none;
+    display: block;
+    color: #666;
+}
+
+.pagination a:hover, .pagination a:active {
+    text-decoration: none;
+    display: block;
+    color: #666;
+}

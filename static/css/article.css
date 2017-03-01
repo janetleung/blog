@@ -1,0 +1,24 @@
+.main {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#article_content h2 {
+    width: 80%;
+    margin: 30px 10px;
+    text-align: center;
+}
+
+#article_content span {
+    width: 80%;
+    display: block;
+    text-align: center;
+    width: 80%;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.content_html {
+    width: 100%;
+    margin: 30px auto;
+}

@@ -1,0 +1,103 @@
+{% extends "background.html" %} {% block background %}
+<div id="revise" style="margin:20px;">
+    <form class="" action="/background/newArticle/" method="post">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon3">文章标题：</span>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" style="width:50%" name="articleTitle" v-model="articleTitle">
+        </div><br>
+        <div id="radio_category">
+            <span id="basic-addon3" >文章类别：</span>
+            <ul>
+                <li v-for="item in items" >
+                    <input type="radio" name="category"  v-bind:id="item" v-model="category" v-bind:value="item">
+                    <label v-bind:for="item" v-text="item"></label>
+                </li>
+            </ul><br><br>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon3">新增类别：</span>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"  style="width:30%" name="new_category" v-model='new_category'>
+        </div><br>
+        <div class="input-group" >
+            <span class="input-group-addon" id="basic-addon3">简介：</span>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"   name="introduction" v-model='introduction'>
+        </div>
+    </form>
+    <div class="editor">
+        <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+    </div><br>
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="submit" class="btn btn-default"  style="width:100px" v-on:click="submit">提交</button>
+    </div>
+</div>
+{% endblock %}
+
+{% extends "background.html" %} {% block script %}
+<script type="text/javascript">
+var revise = new Vue({
+    el: '#revise',
+    data: {
+        id: '<{ id }>',
+        articleTitle: '<{ articleTitle }>',
+        new_category:'',
+        category: '<{ category }>',
+        introduction: '<{ introduction }>',
+        items: [],
+        content: '<{ content | safe }>',
+        ue: UE.getEditor('editor'),
+    },
+    methods: {
+        submit: function () {
+            var jqXHR = $.ajax({
+                url: '/background/reviseArticle/',
+                type: 'POST',
+                data: {
+                    id : revise.id,
+                    articleTitle : revise.articleTitle,
+                    category : revise.category,
+                    new_category : revise.new_category,
+                    introduction : revise.introduction,
+                    content : revise.getContent()
+                },
+                success: function (result) {
+                    revise.articleTitle = '';
+                    revise.category = '';
+                    revise.new_category = '';
+                    revise.introduction = '';
+                    revise.setContent('');
+                    alert(result);
+                },
+                error: function (e) {
+                    console.log(e);
+                },
+            });
+        },
+        getContent: function () {
+            return revise.ue.getContent();
+        },
+        setContent: function (content) {
+            revise.ue.setContent(content);
+        },
+    },
+    mounted: function () {
+        this.ue.ready(function () {
+            revise.setContent(revise.content);
+        });
+        var jqXHR2 = $.ajax({
+            url: '/querycategory/',
+            method: 'GET',
+            success: function (result) {
+                for (var i = 0; i < result.length; i++) {
+                    Vue.set(revise.items, i, result[i]);
+                }
+            },
+            error: function (e) {
+                console.log(e);
+            },
+        });
+
+    },
+});
+
+</script>
+{% endblock %}
